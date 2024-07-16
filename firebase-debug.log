@@ -1,0 +1,58 @@
+[debug] [2022-09-19T21:38:54.411Z] ----------------------------------------------------------------------
+[debug] [2022-09-19T21:38:54.413Z] Command:       /usr/local/Cellar/node/16.8.0/bin/node /usr/local/bin/firebase init
+[debug] [2022-09-19T21:38:54.413Z] CLI Version:   11.9.0
+[debug] [2022-09-19T21:38:54.413Z] Platform:      darwin
+[debug] [2022-09-19T21:38:54.413Z] Node Version:  v16.8.0
+[debug] [2022-09-19T21:38:54.414Z] Time:          Tue Sep 20 2022 05:38:54 GMT+0800 (Hong Kong Standard Time)
+[debug] [2022-09-19T21:38:54.414Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-09-19T21:38:54.416Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2022-09-19T21:38:54.437Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-09-19T21:38:54.437Z] > authorizing via signed-in user (woieva0703@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/eva/my_project/CSDKMS-Revamp-BackEnd
+
+[debug] [2022-09-19T21:38:54.674Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2022-09-19T21:38:54.675Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2022-09-19T21:39:06.303Z] > refreshing access token with scopes: []
+[debug] [2022-09-19T21:39:06.305Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2022-09-19T21:39:06.305Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-09-19T21:39:06.395Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2022-09-19T21:39:06.395Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-09-19T21:39:06.477Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2022-09-19T21:39:07.052Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2022-09-19T21:39:07.052Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] i  Using project kms-test-fc0f3 (kms-test) 
+[info] 
+=== Database Setup
+[info] i  database: ensuring required API firebasedatabase.googleapis.com is enabled... 
+[debug] [2022-09-19T21:39:07.096Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/kms-test-fc0f3/services/firebasedatabase.googleapis.com [none]
+[debug] [2022-09-19T21:39:07.853Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/kms-test-fc0f3/services/firebasedatabase.googleapis.com 200
+[debug] [2022-09-19T21:39:07.853Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/kms-test-fc0f3/services/firebasedatabase.googleapis.com [omitted]
+[warn] ⚠  database: missing required API firebasedatabase.googleapis.com. Enabling now... 
+[debug] [2022-09-19T21:39:07.854Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1/projects/kms-test-fc0f3/services/firebasedatabase.googleapis.com:enable [none]
+[debug] [2022-09-19T21:39:09.244Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1/projects/kms-test-fc0f3/services/firebasedatabase.googleapis.com:enable 200
+[debug] [2022-09-19T21:39:09.244Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1/projects/kms-test-fc0f3/services/firebasedatabase.googleapis.com:enable [omitted]
+[debug] [2022-09-19T21:39:19.245Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/kms-test-fc0f3/services/firebasedatabase.googleapis.com [none]
+[debug] [2022-09-19T21:39:22.014Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/kms-test-fc0f3/services/firebasedatabase.googleapis.com 200
+[debug] [2022-09-19T21:39:22.014Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/kms-test-fc0f3/services/firebasedatabase.googleapis.com [omitted]
+[info] ✔  database: required API firebasedatabase.googleapis.com is enabled 
+[info] 
+[debug] [2022-09-19T21:39:22.018Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/kms-test-fc0f3 [none]
+[debug] [2022-09-19T21:39:22.226Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/kms-test-fc0f3 200
+[debug] [2022-09-19T21:39:22.226Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/kms-test-fc0f3 {"projectId":"kms-test-fc0f3","projectNumber":"809880374388","displayName":"kms-test","name":"projects/kms-test-fc0f3","resources":{"hostingSite":"kms-test-fc0f3"},"state":"ACTIVE","etag":"1_52ba4d37-dad8-45da-a1be-a364e179ad67"}

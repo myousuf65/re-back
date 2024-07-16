@@ -1,0 +1,373 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BF3179BF1CF8F31B004323F1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF3179BE1CF8F31B004323F1 /* AppDelegate.m */; };
+		BF3179C21CF8F31B004323F1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BF3179C11CF8F31B004323F1 /* main.m */; };
+		BF3179C41CF8F31B004323F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF3179C31CF8F31B004323F1 /* Assets.xcassets */; };
+		BF3179C71CF8F31B004323F1 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF3179C51CF8F31B004323F1 /* MainMenu.xib */; };
+		BF3179D21CF8F36B004323F1 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3179CE1CF8F36B004323F1 /* AppKit.framework */; };
+		BF3179D31CF8F36B004323F1 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3179CF1CF8F36B004323F1 /* Cocoa.framework */; };
+		BF3179D41CF8F36B004323F1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3179D01CF8F36B004323F1 /* Foundation.framework */; };
+		BF3179D51CF8F36B004323F1 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3179D11CF8F36B004323F1 /* WebKit.framework */; };
+		BF3179D81CF8F9AF004323F1 /* PTMessageHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = BF3179D71CF8F9AF004323F1 /* PTMessageHandler.m */; };
+		BF3179DB1CFCE26B004323F1 /* libPDFNetC.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3179D91CFCE26B004323F1 /* libPDFNetC.dylib */; };
+		BF3179DC1CFCE26B004323F1 /* libPDFNetJSWorker.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3179DA1CFCE26B004323F1 /* libPDFNetJSWorker.dylib */; };
+		BF3179E01CFCE2B8004323F1 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3179DF1CFCE2B8004323F1 /* CoreFoundation.framework */; };
+		BF3179E21CFCE2DB004323F1 /* libPDFNetC.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = BF3179D91CFCE26B004323F1 /* libPDFNetC.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		BF3179E31CFCE2DB004323F1 /* libPDFNetJSWorker.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = BF3179DA1CFCE26B004323F1 /* libPDFNetJSWorker.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		BF3179EF1CFE0677004323F1 /* HTML in Resources */ = {isa = PBXBuildFile; fileRef = BF3179EE1CFE0677004323F1 /* HTML */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BF3179E11CFCE2CB004323F1 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				BF3179E21CFCE2DB004323F1 /* libPDFNetC.dylib in CopyFiles */,
+				BF3179E31CFCE2DB004323F1 /* libPDFNetJSWorker.dylib in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		BF3179BA1CF8F31B004323F1 /* WebViewerWK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebViewerWK.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF3179BD1CF8F31B004323F1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		BF3179BE1CF8F31B004323F1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BF3179C11CF8F31B004323F1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BF3179C31CF8F31B004323F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BF3179C61CF8F31B004323F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		BF3179C81CF8F31B004323F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF3179CE1CF8F36B004323F1 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		BF3179CF1CF8F36B004323F1 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		BF3179D01CF8F36B004323F1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		BF3179D11CF8F36B004323F1 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		BF3179D61CF8F61B004323F1 /* PTMessageHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTMessageHandler.h; sourceTree = "<group>"; };
+		BF3179D71CF8F9AF004323F1 /* PTMessageHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTMessageHandler.m; sourceTree = "<group>"; };
+		BF3179D91CFCE26B004323F1 /* libPDFNetC.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libPDFNetC.dylib; path = WebViewerWK/Libraries/lib/libPDFNetC.dylib; sourceTree = "<group>"; };
+		BF3179DA1CFCE26B004323F1 /* libPDFNetJSWorker.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libPDFNetJSWorker.dylib; path = WebViewerWK/Libraries/lib/libPDFNetJSWorker.dylib; sourceTree = "<group>"; };
+		BF3179DF1CFCE2B8004323F1 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		BF3179EE1CFE0677004323F1 /* HTML */ = {isa = PBXFileReference; lastKnownFileType = folder; name = HTML; path = WebViewerWK/HTML; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BF3179B71CF8F31B004323F1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF3179DC1CFCE26B004323F1 /* libPDFNetJSWorker.dylib in Frameworks */,
+				BF3179DB1CFCE26B004323F1 /* libPDFNetC.dylib in Frameworks */,
+				BF3179D51CF8F36B004323F1 /* WebKit.framework in Frameworks */,
+				BF3179D21CF8F36B004323F1 /* AppKit.framework in Frameworks */,
+				BF3179D31CF8F36B004323F1 /* Cocoa.framework in Frameworks */,
+				BF3179D41CF8F36B004323F1 /* Foundation.framework in Frameworks */,
+				BF3179E01CFCE2B8004323F1 /* CoreFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BF3179B11CF8F31B004323F1 = {
+			isa = PBXGroup;
+			children = (
+				BF3179EE1CFE0677004323F1 /* HTML */,
+				BF3179DF1CFCE2B8004323F1 /* CoreFoundation.framework */,
+				BF3179D91CFCE26B004323F1 /* libPDFNetC.dylib */,
+				BF3179DA1CFCE26B004323F1 /* libPDFNetJSWorker.dylib */,
+				BF3179CE1CF8F36B004323F1 /* AppKit.framework */,
+				BF3179CF1CF8F36B004323F1 /* Cocoa.framework */,
+				BF3179D01CF8F36B004323F1 /* Foundation.framework */,
+				BF3179D11CF8F36B004323F1 /* WebKit.framework */,
+				BF3179BC1CF8F31B004323F1 /* WebViewerWK */,
+				BF3179BB1CF8F31B004323F1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BF3179BB1CF8F31B004323F1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BF3179BA1CF8F31B004323F1 /* WebViewerWK.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BF3179BC1CF8F31B004323F1 /* WebViewerWK */ = {
+			isa = PBXGroup;
+			children = (
+				BF3179BD1CF8F31B004323F1 /* AppDelegate.h */,
+				BF3179BE1CF8F31B004323F1 /* AppDelegate.m */,
+				BF3179C31CF8F31B004323F1 /* Assets.xcassets */,
+				BF3179C51CF8F31B004323F1 /* MainMenu.xib */,
+				BF3179C81CF8F31B004323F1 /* Info.plist */,
+				BF3179C01CF8F31B004323F1 /* Supporting Files */,
+				BF3179D61CF8F61B004323F1 /* PTMessageHandler.h */,
+				BF3179D71CF8F9AF004323F1 /* PTMessageHandler.m */,
+			);
+			path = WebViewerWK;
+			sourceTree = "<group>";
+		};
+		BF3179C01CF8F31B004323F1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BF3179C11CF8F31B004323F1 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BF3179B91CF8F31B004323F1 /* WebViewerWK */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF3179CB1CF8F31C004323F1 /* Build configuration list for PBXNativeTarget "WebViewerWK" */;
+			buildPhases = (
+				BC839E6B20C07E27007DA914 /* ShellScript */,
+				BF3179B61CF8F31B004323F1 /* Sources */,
+				BF3179B71CF8F31B004323F1 /* Frameworks */,
+				BF3179B81CF8F31B004323F1 /* Resources */,
+				BF3179E11CFCE2CB004323F1 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WebViewerWK;
+			productName = WebViewerWK;
+			productReference = BF3179BA1CF8F31B004323F1 /* WebViewerWK.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BF3179B21CF8F31B004323F1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "PDFTron Systems Inc.";
+				TargetAttributes = {
+					BF3179B91CF8F31B004323F1 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = BF3179B51CF8F31B004323F1 /* Build configuration list for PBXProject "WebViewerWK" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BF3179B11CF8F31B004323F1;
+			productRefGroup = BF3179BB1CF8F31B004323F1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BF3179B91CF8F31B004323F1 /* WebViewerWK */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BF3179B81CF8F31B004323F1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF3179C41CF8F31B004323F1 /* Assets.xcassets in Resources */,
+				BF3179EF1CFE0677004323F1 /* HTML in Resources */,
+				BF3179C71CF8F31B004323F1 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BC839E6B20C07E27007DA914 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "find \"../../Lib\" -iname \"libPDFNetC.dylib*\" -exec cp '{}' \"./WebViewerWK/Libraries/lib/\" \";\"\ncp \"../TestFiles/newsletter.pdf\" \"${BUILT_PRODUCTS_DIR}\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BF3179B61CF8F31B004323F1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF3179C21CF8F31B004323F1 /* main.m in Sources */,
+				BF3179BF1CF8F31B004323F1 /* AppDelegate.m in Sources */,
+				BF3179D81CF8F9AF004323F1 /* PTMessageHandler.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		BF3179C51CF8F31B004323F1 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF3179C61CF8F31B004323F1 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BF3179C91CF8F31C004323F1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		BF3179CA1CF8F31C004323F1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		BF3179CC1CF8F31C004323F1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/WebViewerWK/Libraries/include";
+				INFOPLIST_FILE = WebViewerWK/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/WebViewerWK/Libraries/lib",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.pdftron.WebViewerWK;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		BF3179CD1CF8F31C004323F1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/WebViewerWK/Libraries/include";
+				INFOPLIST_FILE = WebViewerWK/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/WebViewerWK/Libraries/lib",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.pdftron.WebViewerWK;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BF3179B51CF8F31B004323F1 /* Build configuration list for PBXProject "WebViewerWK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF3179C91CF8F31C004323F1 /* Debug */,
+				BF3179CA1CF8F31C004323F1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF3179CB1CF8F31C004323F1 /* Build configuration list for PBXNativeTarget "WebViewerWK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF3179CC1CF8F31C004323F1 /* Debug */,
+				BF3179CD1CF8F31C004323F1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BF3179B21CF8F31B004323F1 /* Project object */;
+}

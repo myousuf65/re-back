@@ -1,0 +1,57 @@
+{"properties": [
+  {
+    "name": "server.session-timeout",
+    "type": "java.lang.String",
+    "description": "A description for 'server.session-timeout'"
+  },
+  {
+    "name": "spring.jpa.hibernate.naming-strategy",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.jpa.hibernate.naming-strategy'"
+  },
+  {
+    "name": "spring.datasource1.url",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource1.url'"
+  },
+  {
+    "name": "spring.datasource1.username",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource1.username'"
+  },
+  {
+    "name": "spring.datasource1.password",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource1.password'"
+  },
+  {
+    "name": "spring.datasource2.url",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource2.url'"
+  },
+  {
+    "name": "spring.datasource2.username",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource2.username'"
+  },
+  {
+    "name": "spring.datasource2.password",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource2.password'"
+  },
+  {
+    "name": "spring.datasource.todos.url",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.todos.url'"
+  },
+  {
+    "name": "spring.datasource.todos.username",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.todos.username'"
+  },
+  {
+    "name": "spring.datasource.todos.password",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.todos.password'"
+  }
+]}

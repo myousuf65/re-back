@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta charset="UTF-8" />
+    <title></title>
+</head>
+<body>
+Thymeleaf Template
+<h1 th:text="${name}">hello world~~~~~~~</h1>
+
+<table>
+    <thead>
+        <tr>
+        	<th> User ID </th>
+            <th> User Name </th>
+            <th> Password </th>
+            <th> Age </th>
+            <th> Birthday </th>
+            <th> Description </th>
+            <th> User Details </th>
+            <th> Delele User </th>
+        </tr>
+    </thead>
+    <tbody>
+    	<!-- <tr th:if="${list.empty}">
+            <td colspan="2"> No Books Available </td>
+        </tr> -->
+        <tr th:each="item : ${list}">
+            <td><span th:text="${{item.getID()}}"> ID </span></td>
+            <td><span th:text="${{item.name}}"> User Name </span></td>
+            <td><span th:text="${{item.password}}"> Password </span></td>
+            <td><span th:text="${{item.age}}"> Age </span></td>
+            <td><span th:text="${{item.birthday}}"> Birthday </span></td>
+            <td><span th:text="${{item.desc}}"> Description </span></td>
+            <th> <a th:href="@{'/th/userDetail?userId=' + ${item.getID()}}" style="cursor:pointer;">Details</a> </th>
+            <th> <a th:href="@{'/delUser?userId=' + ${item.getID()}}" style="cursor:pointer;" onclick="return confirm('Are you sure to delete this user?')">Delete User</a> </th>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>

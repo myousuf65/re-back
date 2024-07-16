@@ -1,0 +1,431 @@
+############################################################
+#
+# Server Configuration
+#
+############################################################
+spring:
+  profiles: developer
+  datasource:
+    #url: jdbc:mysql://127.0.0.1:3306/csdkms?allowPublicKeyRetrieval=true&useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+    url: jdbc:mysql://127.0.0.1:3306/csdkms_prod?allowPublicKeyRetrieval=true&useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+    username: ypathan
+    password: nokian876
+      #    username: developer
+      #    password: csdkms@2019
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    database: MYSQL
+    show-sql: true
+  ldap:
+    # urls: ldap://35.211.255.179:389
+#    urls: ldap://127.0.0.1:389
+    urls: ldap://192.168.1.25:389
+  # port: 389
+    base-dn: dc=maxcrc,dc=com
+
+
+      
+server:
+  port: 8080
+
+app:
+  intranetHost: localhost
+  loginPageURL: /kmsuat/api/login
+  searchGetTokenURL: http://10.11.3.226/idolweb2/security/getSecurityInfo
+  searchQueryURL: http://10.11.3.226/vsearch/#/searchResult
+  searchLinkedDocURL: http://10.11.3.226/idolweb2/linkedDoc?output=json
+  officeToPDFAddress: C:\\enhance\\office2pdf\\
+  isDebug: 1
+
+wowza:
+  host: http://192.168.1.32/wowza/
+  sharedSecret: 12345
+  prefixtoken: wowzatoken
+  clientIP: null 
+---
+#############################################################
+spring:
+  profiles: dev_local
+  #Database
+  datasource:
+    url: jdbc:mysql://35.211.255.179:3306/csdkms?useUnicode=true&characterEncoding=utf-8
+    username: developer
+    password: csdkms@2019
+  datasource2:
+    url: jdbc:mysql://127.0.0.1:3306/csdkms?useUnicode=true&characterEncoding=utf-8
+    username: developer
+    password: csdkms@2019
+    
+#  datasource2:
+#    url: jdbc:mysql://35.211.255.179:3306/csd_holfer?useUnicode=true&characterEncoding=utf-8
+#    username: developer
+#    password: csdkms@2019
+#   
+  ldap:
+    #UAT server in GCP
+#    urls: ldap://127.0.0.1:389
+#    urls: ldap://139.162.35.197:389
+
+    # urls: ldap://35.211.255.179:389
+    # port: 389
+    base-dn: o=People,dc=maxcrc,dc=com
+    url: ldap://139.162.35.197:389/dc=maxcrc,dc=com
+    username: ben
+    password: benspassword
+
+
+security:
+    basic:
+        enable: false
+    servlet:
+      session:
+        timeout: 30m
+        cookie:
+          http-only: true
+          secure: true
+          max-age: 30m
+
+server:
+  port: 8080
+
+
+app:
+  intranetHost: localhost
+  loginPageURL: /login
+  searchGetTokenURL: http://10.11.3.226/idolweb2/security/getSecurityInfo
+  searchQueryURL: http://10.11.3.226/vsearch/#/searchResult
+  searchLinkedDocURL: http://10.11.3.226/idolweb2/linkedDoc?output=json
+  isDebug: 1
+  
+wowza:
+  host: http://192.168.1.32/wowza/
+  sharedSecret: 12345
+  prefixtoken: wowzatoken
+  clientIP: null 
+---
+#############################################################
+spring:
+  profiles: dev
+  datasource:
+    url: jdbc:mysql://35.211.255.179:3306/csdkms?useUnicode=true&characterEncoding=utf-8
+    username: developer
+    password: csdkms@2019
+
+server:
+  port: 443
+  ssl:
+    enabled: true
+    key-store-type: PKCS12
+    key-store: file:ssl/keystore.p12
+    key-store-password: changeit
+
+app:
+  intranetHost: localhost
+  loginPageURL: /login
+  searchGetTokenURL: http://10.11.3.226/idolweb2/security/getSecurityInfo
+  searchQueryURL: http://10.11.3.226/vsearch/#/searchResult
+  officeToPDFAddress: D:\\csdkms\\backend
+
+wowza:
+  host: http://192.168.1.32/wowza/
+  sharedSecret: 12345
+  prefixtoken: wowzatoken
+  clientIP: null 
+---
+#############################################################
+spring:
+  profiles: uat
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/csdkms?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: developer
+    password: csdkms@2019
+  mandatory_file_encoding: UTF-8
+  ldap:
+    #UAT server in CSD
+    #urls: ldap://10.11.16.14:5389
+    #    urls: ldap://10.11.16.14:3038
+    urls:  ldap://nosdp_uat_ldap.csd.hksarg:30389
+    base-dn: dc=ccgo,dc=hksarg
+   # base-dn: ou=people,ou=users,o=csd,dc=ccgo,dc=hksarg
+   
+server:
+  port: 8443
+#  port: 8080
+  ssl:
+    enabled: true
+    key-store-type: PKCS12
+    key-store: file:ssl/keystore.p12
+    key-store-password: changeit
+    protocol: TLS
+    enabled-protocols: TLSv1.2
+    ciphers: ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA,
+             TLS_RSA_WITH_AES_256_CBC_SHA256,TLS_RSA_WITH_AES_256_CBC_SHA
+#  http2:
+#    enabled: true			#not fixed Nginx to support https proxy setting
+  servlet:
+    session:
+      timeout: 30m
+      cookie:
+        http-only: true
+        secure: true
+        max-age: 30m
+#logging:
+#  level:
+#    org:
+#      springframework:
+#        web: trace
+#      apache: trace
+
+app:
+  intranetHost: dsptest.csd.ccgo.hksarg
+  #intranetHost: dsptest.csd.ccgo.hksarg
+  remoteDPHost: access.csd.hksarg
+  remoteKMSHost: kmst.csd.gov.hk
+  loginPageURL: https://dsptest.csd.ccgo.hksarg
+  smtpAddress: 10.11.3.81
+  # searchGetTokenURL: http://10.11.3.226/idolweb2/security/getSecurityInfo
+  # searchQueryURL: http://10.11.3.226/vsearch/#/searchResult
+  # searchLinkedDocURL: http://10.11.3.226/idolweb2/linkedDoc
+  searchGetTokenURL: http://kmsidolp.csd.hksarg/idolweb2/security/getSecurityInfo
+  searchQueryURL: http://kmsidolp.csd.hksarg/vsearch/#/searchResult
+  searchLinkedDocURL: http://kmsidolp.csd.hksarg/idolweb2/linkedDoc
+  officeToPDFAddress: D:\\csdkms\\backend
+  isDebug: 0
+  accessCodeMobileApp: EC489CA9D2BBF7BF9592DDBD9A6625E4E71CD622AAD1BCF5E18F221DD6764F2AAA8BD7AB7368B8E04937009E6D5548AEFA648D353B733354F42F27A2ADAB2E67
+  accessCodeProxy: 372962F6872B085A1BD7D166F8254350E2D422E7BED55627C8DAB0476D196D29534DCB5E59C4E2870A23635BE0C338BBD8B93823D77CDE301C0E5B4587274483
+
+wowza:
+  host: http://192.168.1.32/wowza/
+  sharedSecret: 12345
+  prefixtoken: wowzatoken
+  clientIP: null 
+---
+
+spring:
+  profiles: prod
+  datasource:
+    url: jdbc:mysql://10.11.6.174:3306/csdkms?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: developer
+    password: csdkms@2019
+  ldap:
+    #UAT server in CSD
+    # urls: ldap://10.11.16.14:5389
+    urls: ldap://nosdpldap.csd.hksarg:30389
+    #port: 5389
+    #base-dn: ou=people,ou=users,o=csd,dc=ccgo,dc=hksarg
+    base-dn: dc=ccgo,dc=hksarg
+   
+
+server:
+  port: 443
+  ssl:
+    enabled: true
+    key-store-type: PKCS12
+    key-store: file:ssl/keystore.p12
+    key-store-password: changeit
+  servlet:
+    session:
+      timeout: 30m
+      cookie:
+        http-only: true
+        secure: true
+        max-age: 30m
+
+app:
+  intranetHost: dsp.csd.hksarg
+  remoteDPHost: access.csd.hksarg
+  remoteKMSHost: kms.csd.gov.hk
+  loginPageURL: https://dsp.csd.hksarg
+  smtpAddress: 10.11.3.81
+  searchGetTokenURL: http://kmsidolp.csd.hksarg/idolweb2/security/getSecurityInfo
+  searchQueryURL: http://kmsidolp.csd.hksarg/vsearch/#/searchResult
+  searchLinkedDocURL: http://kmsidolp.csd.hksarg/idolweb2/linkedDoc
+  isDebug: 0
+# http://kmsidolp.csd.hksarg/idol/
+#  searchGetTokenURL: http://10.11.3.171/idolweb2/security/getSecurityInfo
+#  searchQueryURL: http://10.11.3.171/vsearch/#/searchResult
+#  searchLinkedDocURL: http://10.11.3.171/idolweb2/linkedDoc
+  officeToPDFAddress: D:\\csdkms\\backend
+  #search engine production ip: http://10.11.3.171/
+  accessCodeMobileApp: EC489CA9D2BBF7BF9592DDBD9A6625E4E71CD622AAD1BCF5E18F221DD6764F2AAA8BD7AB7368B8E04937009E6D5548AEFA648D353B733354F42F27A2ADAB2E67
+  accessCodeProxy: 372962F6872B085A1BD7D166F8254350E2D422E7BED55627C8DAB0476D196D29534DCB5E59C4E2870A23635BE0C338BBD8B93823D77CDE301C0E5B4587274483
+
+wowza:
+  host: http://192.168.1.32/wowza/
+  sharedSecret: 12345
+  prefixtoken: wowzatoken
+  clientIP: null 
+---
+
+spring:
+  profiles: prod_second
+  datasource:
+    url: jdbc:mysql://10.11.6.175:3306/csdkms?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: developer
+    password: csdkms@2019
+  ldap:
+    #UAT server in CSD
+    urls: ldap://10.11.16.14:5389
+    #port: 5389
+    #base-dn: ou=people,ou=users,o=csd,dc=ccgo,dc=hksarg
+    base-dn: dc=ccgo,dc=hksarg
+   
+
+server:
+  port: 443
+  ssl:
+    enabled: true
+    key-store-type: PKCS12
+    key-store: file:ssl/keystore.p12
+    key-store-password: changeit
+  servlet:
+    session:
+      timeout: 30m
+      cookie:
+        http-only: true
+        secure: true
+        max-age: 30m
+
+app:
+  intranetHost: dp.csd.hksarg
+  remoteDPHost: access.csd.hksarg
+  remoteKMSHost: kms.csd.gov.hk
+  loginPageURL: https://dp.csd.hksarg
+  smtpAddress: 10.11.3.81
+  searchGetTokenURL: http://kmsidolp.csd.hksarg/idolweb2/security/getSecurityInfo
+  searchQueryURL: http://kmsidolp.csd.hksarg/vsearch/#/searchResult
+  searchLinkedDocURL: http://kmsidolp.csd.hksarg/idolweb2/linkedDoc
+  isDebug: 0
+# http://kmsidolp.csd.hksarg/idol/
+#  searchGetTokenURL: http://10.11.3.171/idolweb2/security/getSecurityInfo
+#  searchQueryURL: http://10.11.3.171/vsearch/#/searchResult
+#  searchLinkedDocURL: http://10.11.3.171/idolweb2/linkedDoc
+  officeToPDFAddress: D:\\csdkms\\backend
+  #search engine production ip: http://10.11.3.171/
+  accessCodeMobileApp: EC489CA9D2BBF7BF9592DDBD9A6625E4E71CD622AAD1BCF5E18F221DD6764F2AAA8BD7AB7368B8E04937009E6D5548AEFA648D353B733354F42F27A2ADAB2E67
+  accessCodeProxy: 372962F6872B085A1BD7D166F8254350E2D422E7BED55627C8DAB0476D196D29534DCB5E59C4E2870A23635BE0C338BBD8B93823D77CDE301C0E5B4587274483
+
+wowza:
+  host: http://192.168.1.32/wowza/
+  sharedSecret: 12345
+  prefixtoken: wowzatoken
+  clientIP: null 
+---
+
+
+#security:
+  #require-ssl:true
+  
+#trust store location
+trust:
+  store: file:ssl/kmsuat.p12
+#trust store password
+  password: changeit
+
+#  servlet:
+#    multipart:
+#      max-file-size: -1
+#      max-request-size: -1
+server:
+  servlet:
+    session-timeout: 30m
+    cookie:
+      http-only: true
+      secure: true
+#server.address=192.168.1.2
+spring:
+  datasource:
+    url: jdbc:mysql://10.11.6.174:3306/csdkms?useUnicode=true&characterEncoding=utf-8
+    username: developer
+    password: csdkms@2019
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+       connection-timeout: 20000 #maximum number of milliseconds that a client will wait for a connection
+       minimum-idle: 20 #minimum number of idle connections maintained by HikariCP in a connection pool
+       maximum-pool-size: 100 #maximum pool size
+       idle-timeout: 10000 #maximum idle time for connection
+       max-lifetime: 1000 # maximum lifetime in milliseconds of a connection in the pool after it is closed.
+       auto-commit: true #default auto-commit behavior.
+       
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    database: MYSQL
+    show-sql: true
+  mvc:
+    static-path-pattern: /resources/**
+  resources:
+    #static-locations: ./upload-market/,classpath:/upload-another/,classpath:/static/,classpath:/resources/,classpath:/public/
+
+    static-locations: file:kms_resource/,  file:user_profile/, file:static/
+
+  servlet:
+    multipart:
+      max-file-size: 60MB
+      max-request-size: 60MB
+  
+app:
+#  jwtExpirationInMs: '1800000'
+  jwtExpirationInMs: '1800000'
+  jwtSecret: JWTSuperSecretKey
+  jwtHttpRequestHeader: accessToken
+  devLocalHost: localhost
+  devNamedHost: www.csdkms.com
+  accessCodeMobileApp: EC489CA9D2BBF7BF9592DDBD9A6625E4E71CD622AAD1BCF5E18F221DD6764F2AAA8BD7AB7368B8E04937009E6D5548AEFA648D353B733354F42F27A2ADAB2E67
+  accessCodeProxy: 372962F6872B085A1BD7D166F8254350E2D422E7BED55627C8DAB0476D196D29534DCB5E59C4E2870A23635BE0C338BBD8B93823D77CDE301C0E5B4587274483
+
+wowza:
+  host: http://192.168.1.32/wowza/
+  sharedSecret: '12345'
+  prefixtoken: wowzatoken
+  clientIP: null 
+#  #redis
+#  redis:
+#    host: localhost #default localhost
+#    password: #default ""
+#    timeout: PT30M #30 mins
+#  #spring-session
+#  session:
+#    store-type: redis
+#    timeout: PT30M
+
+
+############################################################
+#
+# thymeleaf Static Resource
+#
+############################################################
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML
+    encoding: UTF-8
+    #Turn Off Cache, turn on when in Production
+    cache: false
+    servlet:
+      content-type: text/html
+      
+# libreoffice Library Path
+#jodconverter: 
+  #local:
+    #enabled: true
+    #office-home: /Applications/LibreOffice.app/Contents
+# Connect jodconverter
+
+
+
+####################### CMD Tools Setting #########################
+com:
+  hkmci: 
+    csdkms:
+      location: 'C:\\enhance\\office2pdf\\'
+
+####################### Command for testing###########################
+# mvn spring-boot:run -Dspring-boot.run.arguments=--spring.profiles.active=developer
+# java -Dspring.profiles.active=prod -jar target/CSDKMS-0.0.1_175.jar
+# mvn install:install-file -Dfile=NCSO.jar -DgroupId=lotus.domino -DartifactId=domino-ncso -Dversion=1.0.0 -Dpackaging=jar
+# mvn install:install-file -Dfile=Notes.jar -DgroupId=lotus.domino -DartifactId=domino -Dversion=1.0.0 -Dpackaging=jar
+

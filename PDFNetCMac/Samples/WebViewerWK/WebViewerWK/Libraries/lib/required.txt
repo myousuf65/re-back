@@ -1,0 +1,1 @@
+Place libPDFNetC.dylib and libPDFNetJSWorker.dylib here.

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta charset="UTF-8" />
+    <title></title>
+</head>
+<body>
+Thymeleaf Template
+<h1 th:text="${name}">hello world~~~~~~~</h1>
+
+<form>
+	<!-- <dd> User ID </dd> <dl th:text="${userInfo.id}"></dl> -->
+	<dd> User Name </dd><dl th:text="${userInfo.name}"></dl>
+	<dd> Password </dd><dl th:text="${userInfo.password}"></dl>
+	<dd> Age </dd><dl th:text="${userInfo.age}"></dl>
+	<dd> Birthday </dd><dl th:text="${userInfo.birthday}"></dl>
+	<dd> Description </dd><dl th:text="${userInfo.desc}"></dl>
+</form>
+</body>
+</html>
