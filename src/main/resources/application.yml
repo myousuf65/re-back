@@ -6,12 +6,12 @@
 spring:
   profiles: developer
   datasource:
-    #url: jdbc:mysql://127.0.0.1:3306/csdkms?allowPublicKeyRetrieval=true&useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
-    url: jdbc:mysql://127.0.0.1:3306/csdkms_prod?allowPublicKeyRetrieval=true&useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
-    username: ypathan
-    password: nokian876
-      #    username: developer
-      #    password: csdkms@2019
+    url: jdbc:mysql://192.168.1.32:3306/csdkms?allowPublicKeyRetrieval=true&useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+#    url: jdbc:mysql://127.0.0.1:3306/csdkms_prod?allowPublicKeyRetrieval=true&useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+#    username: ypathan
+#    password: nokian876
+    username: developer
+    password: csdkms@2019
   jpa:
     hibernate:
       ddl-auto: update
@@ -21,7 +21,8 @@ spring:
   ldap:
     # urls: ldap://35.211.255.179:389
 #    urls: ldap://127.0.0.1:389
-    urls: ldap://192.168.1.25:389
+#    urls: ldap://192.168.1.25:389
+    urls: ldap://139.162.35.173:389
   # port: 389
     base-dn: dc=maxcrc,dc=com
 

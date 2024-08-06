@@ -708,7 +708,8 @@ public class NewsCorner2Controller {
 				@RequestParam(value="page", defaultValue="1") Integer page,
 				HttpSession session) {
 		Integer checkUser = common.checkUserSession(user_id, session);
-		//System.out.println("Enter search API ");
+
+
 		if(checkUser.equals(0)) {
 			return JsonResult.errorMsg("Request User Status Error");
 		}else {
@@ -844,6 +845,29 @@ public class NewsCorner2Controller {
 			return JsonResult.list("Post List Empty", null,0,session);
 		}
 	}
+
+	@RequestMapping("/getLatest/youtube/{userId}/{isLoged}")
+	public ResponseEntity<JsonResult> getLatestYouTube(@PathVariable Long userId,@PathVariable Integer isLoged, HttpSession session) {
+		Integer checkUser = common.checkUserSession(userId, session);
+		if(checkUser.equals(0)) {
+			return JsonResult.errorMsg("Request User Status Error");
+		}else {
+			/* User user = (User) session.getAttribute("user_session");
+			List<User> user_list_session = (List<User>) session.getAttribute("user_list");
+			List<NewsCorner2GalleryDetail> newscorner2_thumb = newscorner2GalleryDetailService.getAllThumb();
+			Integer channel = (Integer) session.getAttribute("channel");
+			List<PostReturnModel> return_data = newscorner2Service.searchNewsCorner2ByLatest(user_list_session,newscorner2_thumb);
+			if(isLoged.equals(1)) {logger.viewNewsCorner2List(user, 0L, "", "Success",channel);}
+			if(return_data == null) {
+				return JsonResult.list("Post List Empty", return_data,0,session);
+			}else{
+				return JsonResult.list("Post List Searching", return_data,return_data.size(),session);
+			} */
+			return JsonResult.list("Post List Empty", null,0,session);
+		}
+	}
+
+
 	/*
 	 * @SuppressWarnings("unchecked")
 	@RequestMapping("/getLatest/{userId}/{isLoged}")

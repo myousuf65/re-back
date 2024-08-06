@@ -13,6 +13,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
+import com.hkmci.csdkms.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,17 +30,6 @@ import com.hkmci.csdkms.entity.ResourceSpeicalGroup;
 import com.hkmci.csdkms.entity.User;
 import com.hkmci.csdkms.model.ResourceCategoryModel;
 import com.hkmci.csdkms.model.SpecialUserGroupModel;
-import com.hkmci.csdkms.repository.AccessRuleRepository;
-import com.hkmci.csdkms.repository.BlogRepository;
-import com.hkmci.csdkms.repository.SpecialCollectionRepository;
-import com.hkmci.csdkms.repository.NewsCorner2Repository;
-import com.hkmci.csdkms.repository.NewsRepository;
-import com.hkmci.csdkms.repository.ResourceAccessRuleRepository;
-import com.hkmci.csdkms.repository.ResourceCategoryRespository;
-import com.hkmci.csdkms.repository.ResourceRepository;
-import com.hkmci.csdkms.repository.ResourceSpecialGroupRepository;
-import com.hkmci.csdkms.repository.ResourceSpecialUserRepository;
-import com.hkmci.csdkms.repository.SpecialUserGroupRepository;
 
 @Service
 public class ResourceServiceImpl implements ResourceService{
@@ -55,6 +45,13 @@ public class ResourceServiceImpl implements ResourceService{
 	
 	@Autowired
     private NewsCorner2Repository newsCorner2Repository;
+
+
+	@Autowired
+	private YouTubeRepository youTubeRepository;
+
+	@Autowired
+	private FacebookRepository facebookRepository;
 	
 	@Autowired
     private SpecialCollectionRepository specialCollectionRepository;
@@ -203,7 +200,8 @@ public class ResourceServiceImpl implements ResourceService{
 		};
        return  return_data;
    }
-    
+
+
     public HashMap<String, List<?>> findHomePageNewsCorner2(List<Long> accessRuleId, Integer is_admin, Long access_channel){
    	 List<String> channel = new ArrayList<>() ;
 //        System.out.println("Access Channel = "+ access_channel);
@@ -236,9 +234,38 @@ public class ResourceServiceImpl implements ResourceService{
 			{
 				put("newsCorner2", newsCorner2List);
 			}
+
 		};
        return  return_data;
    }
+
+	public List<NewsCorner2> findHomePageYoutube(List<Long> accessRuleId, Integer is_admin, Long access_channel){
+		List<String> channel = new ArrayList<>() ;
+		if(String.valueOf(access_channel).equals("1")) {
+			channel.add("0");
+			channel.add("1");
+			channel.add("2");
+		}else {
+			channel.add("2");
+		}
+		final List<NewsCorner2> homepageYoutubeList = youTubeRepository.getHomePage();
+
+		return homepageYoutubeList;
+	}
+
+	public List<NewsCorner2> findHomePageFacebook(List<Long> accessRuleId, Integer is_admin, Long access_channel){
+		List<String> channel = new ArrayList<>() ;
+		if(String.valueOf(access_channel).equals("1")) {
+			channel.add("0");
+			channel.add("1");
+			channel.add("2");
+		}else {
+			channel.add("2");
+		}
+		final List<NewsCorner2> homepageYoutubeList = facebookRepository.getHomePage();
+
+		return homepageYoutubeList;
+	}
     
     public HashMap<String, List<?>> findHomePageSpecialCollection(List<Long> accessRuleId, Integer is_admin, Long access_channel){
     	List<String> channel = new ArrayList<>();

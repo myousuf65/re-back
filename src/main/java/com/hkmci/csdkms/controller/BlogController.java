@@ -548,6 +548,7 @@ public class BlogController {
 			
 					User user = (User) session.getAttribute("user_session");
 					System.out.println("Blog Controller line 435 = user score : "+user.getScore());
+
 					List<User> user_list_session = (List<User>) session.getAttribute("user_list");
 					Integer channel = (Integer) session.getAttribute("channel");
 					List<BlogGalleryDetail> fileList = blogGalleryService.findByGalleryId(blogGallery.get());
@@ -643,6 +644,7 @@ public class BlogController {
 			if(blogGallery.isPresent()) {
 			
 				Integer checkUser = common.checkUserSession(userId, session);
+				System.out.println("checking user----" +checkUser);
 				
 				if(checkUser.equals(0)) {
 					return JsonResult.errorMsg("Request User Status Error");

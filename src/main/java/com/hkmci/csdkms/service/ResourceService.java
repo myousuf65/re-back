@@ -5,13 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
+import com.hkmci.csdkms.entity.*;
 import org.springframework.stereotype.Service;
 
-import com.hkmci.csdkms.entity.AccessRule;
-import com.hkmci.csdkms.entity.FileResource;
-import com.hkmci.csdkms.entity.ResourceAccessRule;
-import com.hkmci.csdkms.entity.ResourceSpecialUser;
-import com.hkmci.csdkms.entity.ResourceSpeicalGroup;
 import com.hkmci.csdkms.model.ResourceCategoryModel;
 import com.hkmci.csdkms.model.SpecialUserGroupModel;;
 
@@ -38,6 +34,12 @@ public interface ResourceService {
 	HashMap<String,List<?>> findHomePageNewsCorner(List<Long> accessRuleId, Integer is_admin, Long access_channel);
 	
 	HashMap<String,List<?>> findHomePageNewsCorner2(List<Long> accessRuleId, Integer is_admin, Long access_channel);
+
+
+	List<NewsCorner2> findHomePageYoutube(List<Long> accessRuleId, Integer is_admin, Long access_channel);
+
+
+	List<NewsCorner2> findHomePageFacebook(List<Long> accessRuleId, Integer is_admin, Long access_channel);
 
 	HashMap<String,List<?>> findHomePageSpecialCollection(List<Long> accessRuleId, Integer is_admin, Long access_channel);
 	

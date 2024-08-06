@@ -191,7 +191,9 @@ public class BlogCommentController {
 				}
 //Send email by Notes Client
 //				common.sendNotice(sendToList,blog.get().getPostTitle(), showedName, return_data.getContent());
-				EmailUtil.sendEmail(sendToList, blog.get().getPostTitle(), showedName, return_data.getContent());
+
+				//edited by yousuf
+//				EmailUtil.sendEmail(sendToList, blog.get().getPostTitle(), showedName, return_data.getContent());
 				
 				return JsonResult.ok(return_data, session);
 			}else {

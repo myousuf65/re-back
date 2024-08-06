@@ -35,6 +35,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.hkmci.csdkms.entity.*;
 import org.apache.commons.io.IOUtils;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.rendering.ImageType;
@@ -60,18 +61,6 @@ import com.hkmci.csdkms.common.EmailUtil;
 import com.hkmci.csdkms.common.LogMessageProperties;
 import com.hkmci.csdkms.common.OfficeWithOldVersion;
 import com.hkmci.csdkms.common.PDF2IMG;
-import com.hkmci.csdkms.entity.AccessRule;
-import com.hkmci.csdkms.entity.Banner;
-import com.hkmci.csdkms.entity.Blog;
-import com.hkmci.csdkms.entity.Favorites;
-import com.hkmci.csdkms.entity.FileResource;
-import com.hkmci.csdkms.entity.Log;
-import com.hkmci.csdkms.entity.ResourceAccessRule;
-import com.hkmci.csdkms.entity.ResourceSpecialUser;
-import com.hkmci.csdkms.entity.ResourceSpeicalGroup;
-import com.hkmci.csdkms.entity.ScoreLog;
-import com.hkmci.csdkms.entity.Uinbox;
-import com.hkmci.csdkms.entity.User;
 import com.hkmci.csdkms.exception.StorageException;
 import com.hkmci.csdkms.model.BannerModel;
 import com.hkmci.csdkms.model.CatAllModel;
@@ -872,8 +861,7 @@ public class ResourceController {
 			}
 			
 			
-			
-			
+
 			List<ResourceCategoryModel> cates = resourceService.getResourceCategoryByResourceIds(resource_ids);
 			List<CatAllModel> all_category = catAllRepository.findAll();
 			List<FileResource> return_data = return_resource.stream().map((f) ->{
@@ -945,7 +933,59 @@ public class ResourceController {
 			return JsonResult.ok(return_data,session);
 		}
     }
-	
+
+	@RequestMapping("/homepage/youtube/{user_id}")
+	public ResponseEntity<JsonResult> getListWithYoutube(@PathVariable Long user_id,HttpSession session) {
+		long begin = System.currentTimeMillis();
+		HashMap<String, String> user_check = common.checkUser(user_id,session);
+
+		if(user_check.get("msg") != "") {
+			System.out.println("Resource Controller - getListWithYoutube [end] : " + (System.currentTimeMillis() - begin));
+			return JsonResult.errorMsg(user_check.get("msg").toString());
+		}else{
+			List<Long> accessRuleId = getAccessRuleIds(user_check,session);
+			User user = (User) session.getAttribute("user_session");
+
+			Integer is_admin = common.checkAdmin(user, session);
+
+//			HashMap<String, List<?>> return_data = resourceService.findHomePageNewsCorner2(accessRuleId,is_admin,Long.parseLong(user_check.get("access_channel")));
+
+			List<NewsCorner2> homepageYouTube = resourceService.findHomePageYoutube(accessRuleId, is_admin, Long.parseLong(user_check.get("access_channel")));
+
+			System.out.println("got data in controller from service : " + homepageYouTube);
+
+			return JsonResult.ok(homepageYouTube, session);
+		}
+
+	}
+
+	@RequestMapping("/homepage/facebook/{user_id}")
+	public ResponseEntity<JsonResult> getListWithFacebook(@PathVariable Long user_id,HttpSession session) {
+		long begin = System.currentTimeMillis();
+		HashMap<String, String> user_check = common.checkUser(user_id,session);
+
+		if(user_check.get("msg") != "") {
+			System.out.println("Resource Controller - getListWithFacebook [end] : " + (System.currentTimeMillis() - begin));
+			return JsonResult.errorMsg(user_check.get("msg").toString());
+		}else{
+			List<Long> accessRuleId = getAccessRuleIds(user_check,session);
+			User user = (User) session.getAttribute("user_session");
+
+			Integer is_admin = common.checkAdmin(user, session);
+
+//			HashMap<String, List<?>> return_data = resourceService.findHomePageNewsCorner2(accessRuleId,is_admin,Long.parseLong(user_check.get("access_channel")));
+
+			List<NewsCorner2> homepageFacebook = resourceService.findHomePageFacebook(accessRuleId, is_admin, Long.parseLong(user_check.get("access_channel")));
+
+			System.out.println("got data in controller from service : " + homepageFacebook);
+
+			return JsonResult.ok(homepageFacebook, session);
+		}
+
+	}
+
+
+
 	@RequestMapping("/homepage/specialCollection/{user_id}")
     public ResponseEntity<JsonResult> getListWithSpecialCollection(@PathVariable Long user_id,HttpSession session) {
 		long begin = System.currentTimeMillis();

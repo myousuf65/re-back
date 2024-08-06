@@ -225,11 +225,11 @@ public interface UserRepository extends JpaRepository<User, Long> {
 	@Query(value="Select u.* FROM user u where u.fullname like %?1%  limit ?2 ,?3 ", nativeQuery = true)
 	List<User> findByStaffName(String asText, Integer limitStart, Integer limitEnd);
 	
-//	@Query(value = "select u.* from csdkms.user u where "
-//			+ " u.username = ?1  and u.is_deleted = ?2 and (u.section_r not like ?3 or u.section_r is null) "
-//			,nativeQuery = true)
-	@Query(value = "select u.* from csdkms_prod.user u where  u.username = \"ben\" "
-	,nativeQuery = true)
+	@Query(value = "select u.* from csdkms.user u where "
+			+ " u.username = ?1  and u.is_deleted = ?2 and (u.section_r not like ?3 or u.section_r is null) "
+			,nativeQuery = true)
+//	@Query(value = "select u.* from csdkms_prod.user u where  u.username = \"ben\" "
+//	,nativeQuery = true)
 	User findByUsernameAndIsDeleted(String username, Integer i, String INTERDICT);
 	
 	

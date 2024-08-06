@@ -37,61 +37,15 @@ import com.hkmci.csdkms.security.JwtAuthenticationEntryPoint;
 @Order(102)
 @EnableGlobalMethodSecurity(securedEnabled = true)
 
-//@Order(100)
 @Profile({ "dev_ssl", "dev_local","developer" })
 public class SecurityConfigDev extends WebSecurityConfigurerAdapter {
     private Logger logger = LoggerFactory.getLogger(SecurityConfigDev.class);
+
 	@Autowired
 	private JwtAuthenticationEntryPoint unauthorizedHandler;
 
-    // @Autowired
-    // @Qualifier("sessionRegistry")
-    // private SessionRegistry sessionRegistry;
-    
-//    @Autowired
-//    private AppProperties appProperties;
-
     @Value("${app.loginPageURL}")
     private String loginPageURL;
-   
-
-//    @Autowired
-//    private Common theCommon;
-//    
-//    @Autowired
-//    private LogService theReportLogger;
-    
-
-/* Ori - dev_local    
-	@Override
-	@ConditionalOnExpression("!${my.security.enabled:false}")
-	protected void configure(HttpSecurity http) throws Exception {        
-
-        logger.info("Loaded Dev Profile!");
-        
-        http
-		    .antMatcher("/").anonymous();
-	                    
-	}
-
-	@Override
-	public void configure(AuthenticationManagerBuilder auth) throws Exception {        
-	    logger.info("333 auth - dev");       
-
-	}    
-
-    */
-
-//    @Configuration
-//    public static class RestConfiguration extends WebSecurityConfigurerAdapter {
-//
-//        //Getting values from properties file
-//		@Value("${spring.ldap.urls}")
-//		private String ldapUrls;
-//		@Value("${spring.ldap.base-dn}")
-//		private String ldapBaseDn;
-
-//    	private Logger logger = LoggerFactory.getLogger(WebConfiguration.class);
 
     	static SessionRegistry SR;
     	@Override
@@ -99,11 +53,7 @@ public class SecurityConfigDev extends WebSecurityConfigurerAdapter {
   		  	logger.info("Run Order 1 - Remote Access auth - dev_local");
 
 			http
-				// .antMatcher("/auth/**")
-				// .authorizeRequests()
-				// 	.anyRequest().authenticated();
-
-				.antMatcher("/auth/**")
+//				.antMatcher("/auth/**")
                 .cors()
                     .and()
                 .csrf()
@@ -111,19 +61,11 @@ public class SecurityConfigDev extends WebSecurityConfigurerAdapter {
 				.exceptionHandling().authenticationEntryPoint(unauthorizedHandler)
 					.and()
                 .authorizeRequests()
-	        	    .antMatchers(HttpMethod.GET, "/**").permitAll()
-	        	    .antMatchers(HttpMethod.POST, "/**").permitAll()
+	        	    .antMatchers(HttpMethod.GET, "/auth/**").denyAll()
+	        	    .antMatchers(HttpMethod.POST, "/**").denyAll()
                     .anyRequest().authenticated();
-//                .and()
-//                	.sessionManagement()
-//                	.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
-//                    .sessionFixation()
-//                    .migrateSession()
-//                    .maximumSessions(1)
-//                    .maxSessionsPreventsLogin(true)
-////                    .sessionRegistry(SR);
-//                    .sessionRegistry(sessionRegistry());
-		    http.sessionManagement()
+
+			http.sessionManagement()
 		        .maximumSessions(1)
 		        .maxSessionsPreventsLogin(false)
 		        .expiredUrl("/")
@@ -142,8 +84,7 @@ public class SecurityConfigDev extends WebSecurityConfigurerAdapter {
 		                .userDnPatterns("uid={0},ou=People")
 		                .userSearchBase("ou=People")
 						.contextSource()
-						.url("ldap://192.168.1.25:389/dc=maxcrc,dc=com");
-	        			//.url("ldap://35.211.255.179:389/dc=maxcrc,dc=com");
+						.url("ldap://139.162.35.173:389/dc=maxcrc,dc=com");
 
 	    }   
 
@@ -160,17 +101,5 @@ public class SecurityConfigDev extends WebSecurityConfigurerAdapter {
 	        return new CustomUserDetailsContextMapper();
 		}
 		
-		// @Bean
-		// public HttpSessionEventPublisher httpSessionEventPublisher() {
-		//     return new HttpSessionEventPublisher();
-		// }
 
-	    // @Bean
-		// @Profile({ "dev_ssl", "dev_local","developer" })
-	    // public SessionRegistry sessionRegistry() {
-	    //     return new SessionRegistryImpl();
-	    // }
-
-//    }
-	    
 }

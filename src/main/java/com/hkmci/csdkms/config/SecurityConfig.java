@@ -45,6 +45,7 @@ public class SecurityConfig {
 	@Order(2)
 	@Configuration
 	public static class WebConfiguration extends WebSecurityConfigurerAdapter {
+
 		@Autowired
 		private CustomAuthenticationProvider authProvider;
 
@@ -123,6 +124,7 @@ public class SecurityConfig {
 	@Order(1)
 	@Configuration
 	public static class RestConfiguration extends WebSecurityConfigurerAdapter {
+
 		@Autowired
 		private JwtAuthenticationEntryPoint unauthorizedHandler;
 
@@ -200,7 +202,7 @@ public class SecurityConfig {
 		public AuthenticationManager authenticationManagerBean() throws Exception {
 			return super.authenticationManagerBean();
 		}
-/* ---- For Production 		   
+/* ---- For Production
 	    @Bean
 	    public LdapContextSource getContextSource() {
 	    	LdapContextSource contextSource = new LdapContextSource();
@@ -224,9 +226,9 @@ public class SecurityConfig {
 //	        contextSource.setPassword("2Nd31Yn#");
 	        contextSource.afterPropertiesSet(); //needed otherwise you will have a NullPointerException in spring
 
-	        
+
 	        return contextSource;
-	    }			    
+	    }
 	    */
 
 
